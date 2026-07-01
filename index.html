@@ -397,6 +397,116 @@
         </div>
     </section>
 
+    <!-- Feedback Section -->
+    <section class="feedback" id="feedback">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge center">Testimonials</span>
+                <h2 class="section-title center">Client <span class="text-gradient-blue">Feedback</span></h2>
+                <p class="section-subtitle center">Read reviews from our partners and share your experience with Najmat Almesafat.</p>
+            </div>
+            
+            <div class="feedback-layout">
+                <!-- Left side: List of reviews -->
+                <div class="reviews-column reveal">
+                    <h3 class="feedback-subheading">Recent Client Reviews</h3>
+                    <div class="reviews-list" id="reviewsList">
+                        <!-- Feedback 1 -->
+                        <div class="feedback-card">
+                            <div class="star-rating">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                            <p class="feedback-text">"Najmat Almesafat completed the plaster and block work for our office partition projects in Deira. Their workforce was extremely fast and the alignment of the wall partitions is absolutely straight. Highly recommended."</p>
+                            <div class="feedback-user">
+                                <div class="user-avatar">AM</div>
+                                <div class="user-info">
+                                    <h4>Ahmed Mansoor</h4>
+                                    <p>Property Manager, Deira Real Estate</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feedback 2 -->
+                        <div class="feedback-card">
+                            <div class="star-rating">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                            <p class="feedback-text">"Outstanding tile fixing service! They installed marble tiling in our living room and master bath. The joints are perfectly aligned, and the finishing is smooth and flat. Clean work throughout."</p>
+                            <div class="feedback-user">
+                                <div class="user-avatar">SR</div>
+                                <div class="user-info">
+                                    <h4>Sarah Rahman</h4>
+                                    <p>Villa Owner, Jumeirah</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side: Submit Feedback Form -->
+                <div class="feedback-form-column reveal">
+                    <div class="feedback-form-card">
+                        <h3 class="feedback-subheading">Leave Your Feedback</h3>
+                        <p class="feedback-form-desc">Your feedback helps us maintain our quality and construction standards.</p>
+                        
+                        <form id="clientFeedbackForm" class="client-feedback-form">
+                            <div class="form-group">
+                                <label for="clientName" class="form-label">Full Name</label>
+                                <input type="text" id="clientName" name="clientName" class="form-input" placeholder="e.g. John Smith" required>
+                                <span class="input-line"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="clientRole" class="form-label">Role / Company (Optional)</label>
+                                <input type="text" id="clientRole" name="clientRole" class="form-input" placeholder="e.g. Villa Owner, Manager">
+                                <span class="input-line"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Your Rating</label>
+                                <div class="star-rating-selector" id="starRatingSelector">
+                                    <span data-value="1" class="active">★</span>
+                                    <span data-value="2" class="active">★</span>
+                                    <span data-value="3" class="active">★</span>
+                                    <span data-value="4" class="active">★</span>
+                                    <span data-value="5" class="active">★</span>
+                                </div>
+                                <input type="hidden" id="ratingValue" name="ratingValue" value="5">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackMessage" class="form-label">Review Details</label>
+                                <textarea id="feedbackMessage" name="feedbackMessage" class="form-textarea" rows="3" placeholder="Share your experience with our block work, plastering, tile fixing, or maintenance services..." required></textarea>
+                                <span class="input-line"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span class="btn-text">Submit Review</span>
+                                <span class="btn-loader">
+                                    <svg class="spinner" viewBox="0 0 50 50">
+                                        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
+
+                        <div id="feedbackFormSuccess" class="form-success-message hidden">
+                            <div class="success-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <h4 class="success-title">Review Submitted!</h4>
+                            <p class="success-desc">Thank you for sharing your experience. Your review has been added to our board.</p>
+                            <button id="resetFeedbackBtn" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">Write Another Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Project Statistics Section -->
     <section class="stats">
         <div class="stats-overlay"></div>
@@ -458,6 +568,17 @@
                             <div class="info-details">
                                 <span class="info-label">Email Us</span>
                                 <a href="mailto:najmatdxbtech@gmail.com" class="info-link">najmatdxbtech@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div class="info-details">
+                                <span class="info-label">Address</span>
+                                <span class="info-value" style="color: var(--bg-white); font-size: 0.95rem; font-weight: 500;">Shop NO: 15, Lulu Building Near Malabar Supermarket Nakheel Center Road Deira , Dubai - U.A.E.</span>
                             </div>
                         </div>
                     </div>
@@ -554,14 +675,14 @@
     <section class="maps-section">
         <div class="maps-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d115550.93282245229!2d55.19177114138139!3d25.1706692795493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6bcb68742881%3A0xe2b450701bc210f9!2sAl%20Quoz%20-%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.204558231268!2d55.3090714761405!3d25.26372132900989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4339e33bb589%3A0xb3debb98d6c81bb6!2sNakheel%20Rd%20-%20Deira%20-%20Dubai!5e0!3m2!1sen!2sae!4v1719830000000!5m2!1sen!2sae" 
                 width="100%" 
                 height="450" 
                 style="border:0;" 
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade"
-                aria-label="Najmat Almesafat Technical Services Office Location, Al Quoz, Dubai">
+                aria-label="Najmat Almesafat Technical Services Office Location, Deira, Dubai">
             </iframe>
         </div>
     </section>
@@ -618,7 +739,7 @@
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                <span>Al Quoz, Dubai, UAE</span>
+                                <span>Shop NO: 15, Lulu Building Near Malabar Supermarket Nakheel Center Road Deira , Dubai - U.A.E.</span>
                             </li>
                         </ul>
                     </div>
@@ -634,6 +755,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/971562383265" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.37 5.378 0 12.037 0c3.225.001 6.258 1.257 8.537 3.54 2.279 2.281 3.53 5.316 3.529 8.542-.004 6.661-5.379 12.03-12.035 12.03-2.008-.002-3.98-.5-5.733-1.448L0 24zm6.59-4.846c1.666.988 3.311 1.485 5.38 1.486 5.376 0 9.75-4.37 9.754-9.743.002-2.602-1.01-5.05-2.85-6.892C17.043 2.164 14.594 1.15 12 1.15c-5.377 0-9.751 4.373-9.756 9.747-.001 2.062.535 4.084 1.554 5.795L2.83 21.17l4.817-1.262-.2 1.248zM17.43 14.5c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        </svg>
+    </a>
 
     <!-- Main JavaScript -->
     <script src="script.js"></script>

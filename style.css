@@ -1607,4 +1607,219 @@ iframe {
     }
 }
 
+/* ==========================================================================
+   16. Feedback / Testimonials Section
+   ========================================================================== */
+.feedback {
+    padding: var(--section-padding);
+    background-color: var(--bg-white);
+}
+
+.feedback-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.reviews-column, .feedback-form-column {
+    width: 100%;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feedback-subheading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--primary);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.feedback-subheading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.feedback-card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(212, 175, 55, 0.25);
+}
+
+.feedback-card.new-review {
+    animation: slideInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    border-color: var(--accent);
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.star-rating {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.feedback-text {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.feedback-user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--accent);
+    flex-shrink: 0;
+}
+
+.user-info h4 {
+    font-size: 0.98rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.user-info p {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Feedback Form Card */
+.feedback-form-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 35px;
+    box-shadow: var(--shadow-sm);
+}
+
+.feedback-form-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.star-rating-selector {
+    display: flex;
+    gap: 6px;
+    font-size: 1.8rem;
+    color: var(--text-gray);
+    margin-top: 6px;
+}
+
+.star-rating-selector span {
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.star-rating-selector span.active,
+.star-rating-selector span:hover,
+.star-rating-selector span.hovered {
+    color: var(--accent);
+}
+
+@media (max-width: 991px) {
+    .feedback-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+
+/* ==========================================================================
+   17. Floating WhatsApp Button
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), var(--shadow-whatsapp);
+    z-index: 9999;
+    transition: var(--transition-smooth);
+}
+
+.whatsapp-float:hover {
+    background-color: var(--whatsapp-hover);
+    transform: translateY(-5px) scale(1.05);
+    color: white;
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 575px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+
 

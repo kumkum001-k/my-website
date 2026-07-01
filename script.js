@@ -150,4 +150,123 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // ==========================================
+    // 6. Interactive Feedback Form & Star Rating
+    // ==========================================
+    const starSelector = document.getElementById('starRatingSelector');
+    const feedbackForm = document.getElementById('clientFeedbackForm');
+    const feedbackSuccess = document.getElementById('feedbackFormSuccess');
+    const resetFeedbackBtn = document.getElementById('resetFeedbackBtn');
+    const reviewsList = document.getElementById('reviewsList');
+
+    if (starSelector) {
+        const stars = starSelector.querySelectorAll('span');
+        const ratingInput = document.getElementById('ratingValue');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const selectedValue = parseInt(star.getAttribute('data-value'));
+                ratingInput.value = selectedValue;
+
+                // Update stars appearance
+                stars.forEach(s => {
+                    const val = parseInt(s.getAttribute('data-value'));
+                    if (val <= selectedValue) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    if (feedbackForm && feedbackSuccess && reviewsList) {
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value.trim();
+            let role = document.getElementById('clientRole').value.trim();
+            const ratingValue = parseInt(document.getElementById('ratingValue').value) || 5;
+            const message = document.getElementById('feedbackMessage').value.trim();
+
+            if (!name || !message) {
+                alert('Please enter your name and review details.');
+                return;
+            }
+
+            if (!role) {
+                role = 'Client';
+            }
+
+            const submitReviewBtn = feedbackForm.querySelector('button[type="submit"]');
+            submitReviewBtn.classList.add('loading');
+            submitReviewBtn.disabled = true;
+
+            // Generate user initials
+            const nameParts = name.split(' ');
+            let initials = nameParts[0].charAt(0).toUpperCase();
+            if (nameParts.length > 1) {
+                initials += nameParts[nameParts.length - 1].charAt(0).toUpperCase();
+            } else {
+                initials += name.charAt(Math.min(1, name.length - 1)).toUpperCase();
+            }
+
+            setTimeout(() => {
+                submitReviewBtn.classList.remove('loading');
+                submitReviewBtn.disabled = false;
+
+                // Hide form & show success
+                feedbackForm.classList.add('hidden');
+                feedbackSuccess.classList.remove('hidden');
+
+                // Create new review element dynamically
+                const newCard = document.createElement('div');
+                newCard.className = 'feedback-card new-review';
+
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= ratingValue) {
+                        starsHtml += '<span>★</span>';
+                    } else {
+                        starsHtml += '<span style="color: var(--text-gray);">★</span>';
+                    }
+                }
+
+                newCard.innerHTML = `
+                    <div class="star-rating">
+                        ${starsHtml}
+                    </div>
+                    <p class="feedback-text">"${message}"</p>
+                    <div class="feedback-user">
+                        <div class="user-avatar">${initials}</div>
+                        <div class="user-info">
+                            <h4>${name}</h4>
+                            <p>${role}</p>
+                        </div>
+                    </div>
+                `;
+
+                // Prepend to top of reviews list
+                reviewsList.prepend(newCard);
+
+                // Reset form fields and default stars rating selector to 5 stars
+                feedbackForm.reset();
+                if (starSelector) {
+                    const stars = starSelector.querySelectorAll('span');
+                    stars.forEach(s => s.classList.add('active'));
+                    document.getElementById('ratingValue').value = 5;
+                }
+            }, 1000);
+        });
+
+        if (resetFeedbackBtn) {
+            resetFeedbackBtn.addEventListener('click', () => {
+                feedbackSuccess.classList.add('hidden');
+                feedbackForm.classList.remove('hidden');
+            });
+        }
+    }
 });
+
