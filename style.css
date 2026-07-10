@@ -1011,9 +1011,9 @@ iframe {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 70px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .contact-desc {

@@ -98,58 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', highlightNav);
     highlightNav();
 
-    // ==========================================
-    // 5. Contact Form Interaction & Success feedback
-    // ==========================================
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-    const resetFormBtn = document.getElementById('resetFormBtn');
-    const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
-
-    if (contactForm && formSuccess && submitBtn) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Extract input values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value.trim();
-
-            // Ensure basic presence check
-            if (!name || !email || !phone || !service || !message) {
-                alert('Please fill out all contact fields before submitting.');
-                return;
-            }
-
-            // Put button into loading state
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-
-            // Simulate server network dispatch delay
-            setTimeout(() => {
-                // Clear loading state
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-
-                // Hide inputs & show beautiful golden success card
-                contactForm.classList.add('hidden');
-                formSuccess.classList.remove('hidden');
-                
-                // Clear contact form fields
-                contactForm.reset();
-            }, 1500);
-        });
-
-        // Reset state callback
-        if (resetFormBtn) {
-            resetFormBtn.addEventListener('click', () => {
-                formSuccess.classList.add('hidden');
-                contactForm.classList.remove('hidden');
-            });
-        }
-    }
 
     // ==========================================
     // 6. Interactive Feedback Form & Star Rating
