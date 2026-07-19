@@ -14,6 +14,8 @@
     
     --whatsapp: #25d366;        /* WhatsApp Green */
     --whatsapp-hover: #20ba5a;
+    --instagram: #e1306c;       /* Instagram Pink */
+    --instagram-hover: #c13584; /* Instagram Deep Pink/Purple */
     
     --bg-light: #f8fafc;        /* Cool Light Slate */
     --bg-white: #ffffff;        /* Pure White */
@@ -55,6 +57,7 @@
     --shadow-lg: 0 20px 30px -5px rgba(11, 28, 58, 0.12), 0 10px 15px -5px rgba(11, 28, 58, 0.06);
     --shadow-gold: 0 10px 25px -10px rgba(212, 175, 55, 0.4);
     --shadow-whatsapp: 0 10px 25px -10px rgba(37, 211, 102, 0.4);
+    --shadow-instagram: 0 10px 25px -10px rgba(225, 48, 108, 0.4);
 }
 
 /* 1. Reset and Base Elements */
@@ -416,6 +419,19 @@ iframe {
     color: var(--bg-white);
     transform: translateY(-2px);
     box-shadow: 0 12px 20px -8px rgba(37, 211, 102, 0.6);
+}
+
+.btn-instagram {
+    background-color: var(--instagram);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-instagram);
+}
+
+.btn-instagram:hover {
+    background-color: var(--instagram-hover);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -8px rgba(225, 48, 108, 0.6);
 }
 
 .btn-block {
@@ -1289,6 +1305,37 @@ iframe {
 .footer-brand-desc {
     line-height: 1.7;
     max-width: 320px;
+}
+
+/* Footer Social Icons */
+.footer-socials {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--text-gray);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition-fast);
+}
+
+.social-icon:hover {
+    color: var(--bg-white);
+    transform: translateY(-3px);
+}
+
+.social-icon.instagram:hover {
+    background-color: var(--instagram);
+    border-color: var(--instagram);
+    box-shadow: var(--shadow-instagram);
 }
 
 .footer-heading {
